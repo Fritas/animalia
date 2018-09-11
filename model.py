@@ -1,4 +1,3 @@
-
 class Animal(object):
     """ """
 
@@ -16,8 +15,14 @@ class Animal(object):
         self.id = id
 
     def __str__(self):
-        return 'Animal:\n    nome_dono: %s\n    tipo_animal: %s\n    raca: %s\n    id: %s'\
+        return '\n    nome_dono: %s\n    tipo_animal: %s\n    raca: %s\n    id: %s'\
          %(self.nome_dono, self.tipo_animal, self.raca, self.id)
+
+    def __eq__(self, outro):
+        return self.nome_dono == outro.nome_dono and \
+            self.tipo_animal == outro.tipo_animal and \
+            self.raca == outro.raca and \
+            self.id == outro.id
 
 class Consulta(object):
     """ """
@@ -41,8 +46,17 @@ class Consulta(object):
         self.id = id
 
     def __str__(self):
-        return 'Consulta:\n    data: %s\n    servico: %s\n    horario: %s\n    cliente: %s\n    animal: %s\n    confirma: %s\n    id: %s'\
+        return '\n    data: %s\n    servico: %s\n    horario: %s\n    cliente: %s\n    animal: %s\n    confirma: %s\n    id: %s'\
          %(self.data, self.servico, self.horario, self.cliente, self.animal, self.confirma, self.id)
+
+    def __eq__(self, outro):
+        return self.data == outro.data and \
+            self.servico == outro.servico and \
+            self.horario == outro.horario and \
+            self.cliente == outro.cliente and \
+            self.animal == outro.animal and \
+            self.confirma == outro.confirma and\
+            self.id == outro.id
 
 class Cliente(object):
     """ """
@@ -64,8 +78,16 @@ class Cliente(object):
         self.senha = senha
 
     def __str__(self):
-        return 'Cliente:\n    nome: %s\n    email: %s\n    telefone: %s\n    id: %s\n    nome_login: %s\n    senha: %s\n    ' \
+        return '\n    nome: %s\n    email: %s\n    telefone: %s\n    id: %s\n    nome_login: %s\n    senha: %s\n    ' \
          %(self.nome, self.email, self.telefone, self.id, self.nome_login, self.senha)
+
+    def __eq__(self, outro):
+        return self.nome == outro.nome and \
+        self.email == outro.email and \
+        self.telefone == outro.telefone and \
+        self.id == outro.id and \
+        self.nome_login == outro.nome_login and \
+        self.senha == outro.senha
 
 class Comentario(object):
     """ """
@@ -81,7 +103,7 @@ class Comentario(object):
         self.mensagem = mensagem
 
     def __str__(self):
-        return 'Comentario:\n    nome: %s\n    email: %s\n    mensagem: %s\n    '\
+        return '\n    nome: %s\n    email: %s\n    mensagem: %s\n    '\
          %(self.nome, self.email, self.mensagem)
 
 class Produto(object):
@@ -100,7 +122,7 @@ class Produto(object):
         self.descricao = descricao
 
     def __str__(self):
-        return 'Produto:\n    nomep: %s\n    quantidade: %s\n    codigo: %s\n    descricao: %s\n    '\
+        return '\n    nomep: %s\n    quantidade: %s\n    codigo: %s\n    descricao: %s\n    '\
          %(self.nomep, self.quantidade, self.codigo, self.descricao)
 
 class Reserva(object):
@@ -123,5 +145,5 @@ class Reserva(object):
         self.confirmacao = confirmacao
 
     def __str__(self):
-        return 'Comentario:\n    data_reserva: %s\n    cliente: %s\n    produto: %s\n    quantidade: %s\n    id: %s\n    confirmacao: %s\n    ' \
+        return '\n    data_reserva: %s\n    cliente: %s\n    produto: %s\n    quantidade: %s\n    id: %s\n    confirmacao: %s\n    ' \
          %(self.data_reserva, self.cliente, self.produto, self.quantidade, self.id, self.confirmacao)
