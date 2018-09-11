@@ -1,11 +1,11 @@
 from model import Animal, Cliente, Consulta, Comentario, Produto, Reserva
 
 if __name__ == "__main__":
-    
+    #docsstring
     print('Classe Animal')
     print(Animal.__doc__)
     print(Animal.__init__.__doc__)
-    
+        
     print('\n\nClasse Cliente')
     print(Cliente.__doc__)
     print(Cliente.__init__.__doc__)
@@ -26,27 +26,64 @@ if __name__ == "__main__":
     print(Reserva.__doc__)
     print(Reserva.__init__.__doc__)
 
+    #testes
     print('\n\n-- Teste model.py')
-    print('\n-- Teste Classe Animal')
-    animal = Animal('dog', 'Cachorro', 'Vira-lata', 1)
-    print(animal.__str__())
 
-    print('\n-- Teste Classe Cliente')
-    cliente = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 1, 'joaozinho', 'joao123')
-    print(cliente.__str__())
+    print('\n\n-- Teste Classe Animal')
+    animal1 = Animal('joao', 'Cachorro', 'Vira-lata', 1)
+    animal2 = Animal('monica', 'Cachorro', 'Vira-lata', 1)
+    animal3 = Animal('joao', 'Cachorro', 'Vira-lata', 1)
+    print('\n-- Method __str__')
+    print('Animal 1: ', animal1)
+    print('Animal 2: ', animal2)
+    print('Animal 3: ', animal3)
+    print('\n-- Method __eq__')
+    print('Animal 1 == Animal 2: ', animal1 == animal2)
+    print('Animal 1 == Animal 3: ', animal1 == animal3)
+    print('Animal 2 == Animal 3: ', animal2 == animal3)
+
+    print('\n\n-- Teste Classe Cliente')
+    cliente1 = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 1, 'joaozinho', 'joao123')
+    cliente2 = Cliente('Monicazinha', 'monicazinha@email.com', '47 88888-8888', 2, 'monicazinha', 'monicazinha123')
+    cliente3 = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 1, 'joaozinho', 'joao123')
+
+    print('\n-- Method __str__')
+    print('Cliente 1: ', cliente1)
+    print('Cliente 2: ', cliente2)
+    print('Cliente 3: ', cliente3)
+
+    print('\n-- Method __eq__')
+    print('Cliente 1 == Cliente 2: ', cliente1 == cliente2)
+    print('Cliente 1 == Cliente 3: ', cliente1 == cliente3)
+    print('Cliente 2 == Cliente 3: ', cliente2 == cliente3)
     
-    print('\n-- Teste Classe Consulta')
-    consulta = Consulta('2018/09/04', 'banho', '15:00', cliente, animal, 'confirmada', 1)
-    print(consulta.__str__())
+    print('\n\n-- Teste Classe Consulta')
+    consulta1 = Consulta('2018/09/04', 'banho', '15:00', cliente1, animal1, 'confirmada', 1)
+    consulta2 = Consulta('2018/09/04', 'banho', '18:00', cliente1, animal1, 'confirmada', 1)
+    consulta3 = Consulta('2018/09/04', 'banho', '15:00', cliente3, animal3, 'confirmada', 1)
+
+
+    print('\n-- Method __str__')
+    print('Consulta 1: ', consulta1)
+    print('Consulta 2: ', consulta2)
+    print('Consulta 3: ', consulta3)
+
+    print('\n-- Method __eq__')
+    print('Consulta 1 == Consulta 2: ', consulta1 == consulta2)
+    print('Consulta 1 == Consulta 3: ', consulta1 == consulta3)
+    print('Consulta 2 == Consulta 3: ', consulta2 == consulta3)
     
-    print('\n-- Teste Classe Comentario')
+    print('\n\n-- Teste Classe Comentario')
     comentario = Comentario('joaozinho', 'joaozinho@email.com', 'O banho do dog ficou ótimo!')
-    print(comentario.__str__())
+    print('\n-- Method __str__')
+    print('Comentario: ', comentario)
 
-    print('\n-- Teste Classe Produto')
+    print('\n\n-- Teste Classe Produto')
     produto = Produto('Perfume', 1, 456, 'Perfume especial para cães domésticos que vivem dentro de casa.')
-    print(produto.__str__())
+    print('\n-- Method __str__')
+    print('Comentario: ', produto)
 
-    print('\n-- Teste Classe Reserva')
+    print('\n\n-- Teste Classe Reserva')
     reserva = Reserva('2018/09/04', 'joazinho', produto, 1, 2, 'confirmado')
-    print(reserva.__str__())
+    print('\n-- Method __str__')
+    print('Reserva: ', reserva)
