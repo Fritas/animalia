@@ -27,7 +27,7 @@ class Animal(object):
 class Consulta(object):
     """ """
 
-    def __init__(self, data, servico, horario, cliente, animal, confirma, id=None):
+    def __init__(self, data, servico, horario, cliente, animal, confirma, mID, id=None):
         """
         :type data: string
         :type servico: string
@@ -46,8 +46,8 @@ class Consulta(object):
         self.id = id
 
     def __str__(self):
-        return '\n    data: %s\n    servico: %s\n    horario: %s\n    cliente: %s\n    animal: %s\n    confirma: %s\n    id: %s'\
-         %(self.data, self.servico, self.horario, self.cliente, self.animal, self.confirma, self.id=None)
+        return '\n    data: %s\n    servico: %s\n    horario: %s\n    cliente: %s\n    animal: %s\n    confirma: %s\n    mID: %s\n    id: %s'\
+         %(self.data, self.servico, self.horario, self.cliente, self.animal, self.confirma, self.mID, self.id)
 
     def __eq__(self, outro):
         return self.data == outro.data and \
