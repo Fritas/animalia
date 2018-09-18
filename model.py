@@ -43,6 +43,7 @@ class Consulta(object):
         self.cliente = cliente
         self.animal = animal
         self.confirma = confirma
+        self.mID = mID
         self.id = id
 
     def __str__(self):
