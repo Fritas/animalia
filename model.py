@@ -2,7 +2,7 @@ class Animal(object):
     """ """
 
 
-    def __init__(self, nome_dono, tipo_animal, raca, id):
+    def __init__(self, nome_dono, tipo_animal, raca, id=None):
         """ 
         :type nome_dono: string
         :type tipo_animal: string
@@ -27,7 +27,7 @@ class Animal(object):
 class Consulta(object):
     """ """
 
-    def __init__(self, data, servico, horario, cliente, animal, confirma, id):
+    def __init__(self, data, servico, horario, cliente, animal, confirma, id=None):
         """
         :type data: string
         :type servico: string
@@ -47,7 +47,7 @@ class Consulta(object):
 
     def __str__(self):
         return '\n    data: %s\n    servico: %s\n    horario: %s\n    cliente: %s\n    animal: %s\n    confirma: %s\n    id: %s'\
-         %(self.data, self.servico, self.horario, self.cliente, self.animal, self.confirma, self.id)
+         %(self.data, self.servico, self.horario, self.cliente, self.animal, self.confirma, self.id=None)
 
     def __eq__(self, outro):
         return self.data == outro.data and \
@@ -61,7 +61,7 @@ class Consulta(object):
 class Cliente(object):
     """ """
 
-    def __init__(self, nome, email, telefone, id, nome_login, senha):
+    def __init__(self, nome, email, telefone, nome_login, senha, id=None):
         """
         :type nome: string
         :type email: string
@@ -128,7 +128,7 @@ class Produto(object):
 class Reserva(object):
     """ """
 
-    def __init__(self, data_reserva, cliente, produto, quantidade, id, confirmacao):
+    def __init__(self, data_reserva, cliente, produto, quantidade, confirmacao, id=None):
         """
         :type data_reserva: string
         :type cliente: Cliente
