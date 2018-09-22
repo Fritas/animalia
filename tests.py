@@ -1,6 +1,7 @@
 from model import Animal, Cliente, Consulta, Comentario, Produto, Reserva
+from dao import Dao, Database
 
-if __name__ == "__main__":
+def imprimir_docs_string():
     #docsstring
     print('Classe Animal')
     print(Animal.__doc__)
@@ -26,6 +27,7 @@ if __name__ == "__main__":
     print(Reserva.__doc__)
     print(Reserva.__init__.__doc__)
 
+def teste_models():
     #testes
     print('\n\n-- Teste model.py')
 
@@ -87,3 +89,84 @@ if __name__ == "__main__":
     reserva = Reserva('2018/09/04', 'joazinho', produto, 1, 2, 'confirmado')
     print('\n-- Method __str__')
     print('Reserva: ', reserva)
+
+class TesteDao(object):
+
+    @staticmethod
+    def testar():
+        Database.apagar_banco()
+        ("\n\n\n-- Teste Dao")
+        TesteDao.inserir_animal()
+        TesteDao.retornar_animais()
+
+        TesteDao.inserir_cliente()
+        TesteDao.retornar_clientes()
+
+        TesteDao.inserir_consulta()
+        TesteDao.retornar_consultas()
+
+    @staticmethod
+    def inserir_animal():
+        print("\n\n-- Teste Dao.inserir_animal()")
+        animal1 = Animal('joao', 'Cachorro', 'Vira-lata', 1)
+        animal2 = Animal('monica', 'Cachorro', 'Vira-lata', 1)
+        animal3 = Animal('joao', 'Cachorro', 'Vira-lata', 1)
+        print("\nAnimal1: ", Dao.inserir_animal(animal1))
+        print("\nAnimal2: ", Dao.inserir_animal(animal2))
+        print("\nAnimal3: ", Dao.inserir_animal(animal3))
+
+    @staticmethod
+    def retornar_animais(): 
+        print("\n\n-- Teste Dao.retornar_animais()")
+        animais = Dao.retornar_animais()
+        for animal in animais:
+            print(animal)
+        return animais
+    
+
+        print("\n\n-- Teste Dao.retornar_animais() \nObs.: deve aparecer os animais adicionados")
+        for animal in Dao.retornar_animais():
+            print(animal)  
+
+        ## cliente ------------------------------------------------------------------------------
+
+    @staticmethod
+    def inserir_cliente():
+        print("\n\n-- Teste Dao.inserir_cliente()")
+        cliente1 = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 'joaozinho', 'joao123', 1)
+        cliente2 = Cliente('Monicazinha', 'monicazinha@email.com', '47 88888-8888', 'monicazinha', 'monicazinha123', 2)
+        cliente3 = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 'joaozinho', 'joao123', 1)
+        print("\nCliente1: ", Dao.inserir_cliente(cliente1))
+        print("\nCliente2: ", Dao.inserir_cliente(cliente2))
+        print("\nCliente3: ", Dao.inserir_cliente(cliente3))
+
+    @staticmethod
+    def retornar_clientes():
+        print("\n\n-- Teste Dao.retornar_consultas()")
+        clientes = Dao.retornar_clientes()
+        for cliente in clientes:
+            print(cliente)  
+        return clientes
+    
+    @staticmethod
+    def inserir_consulta():
+        print("\n\n-- Teste Dao.inserir_consulta()")
+        cliente = Dao.retornar_clientes()
+        animal = Dao.retornar_animais()
+        consulta1 = Consulta('2018/09/04', 'banho', '15:00', cliente[0], animal[0], 'confirmada', '@3621361287', 1)
+        consulta2 = Consulta('2018/09/04', 'banho', '18:00', cliente[1], animal[1], 'confirmada', '@3454547664', 1)
+        consulta3 = Consulta('2018/09/04', 'banho', '15:00', cliente[2], animal[2], 'confirmada', '@3454547664', 1)
+        print("\nConsulta1: ", Dao.inserir_consulta(consulta1))
+        print("\nConsulta2: ", Dao.inserir_consulta(consulta2))
+        print("\nConsulta3: ", Dao.inserir_consulta(consulta3))
+
+    @staticmethod
+    def retornar_consultas():
+        print("\n\n-- Teste Dao.retornar_consultas()")
+        consultas = Dao.retornar_consultas()
+        for consulta in consultas:
+            print(consulta)  
+        return consultas
+
+if __name__ == "__main__":
+    TesteDao.testar()
