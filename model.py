@@ -15,7 +15,7 @@ class Animal(object):
         self.id = id
 
     def __str__(self):
-        return '\n    nome_dono: %s\n    tipo_animal: %s\n    raca: %s\n    id: %s'\
+        return 'Animal:\n    nome_dono: %s\n    tipo_animal: %s\n    raca: %s\n    id: %s'\
          %(self.nome_dono, self.tipo_animal, self.raca, self.id)
 
     def __eq__(self, outro):
@@ -35,6 +35,7 @@ class Consulta(object):
         :type cliente: Cliente
         :type animal: Animal
         :type confirma: string
+        :type mID: string
         :type id: int
         """
         self.data = data
@@ -47,7 +48,7 @@ class Consulta(object):
         self.id = id
 
     def __str__(self):
-        return '\n    data: %s\n    servico: %s\n    horario: %s\n    cliente: %s\n    animal: %s\n    confirma: %s\n    mID: %s\n    id: %s'\
+        return 'Consulta:\n    data: %s\n    servico: %s\n    horario: %s\n    %s\n    %s\n    confirma: %s\n    mID: %s\n    id: %s'\
          %(self.data, self.servico, self.horario, self.cliente, self.animal, self.confirma, self.mID, self.id)
 
     def __eq__(self, outro):
@@ -79,7 +80,7 @@ class Cliente(object):
         self.senha = senha
 
     def __str__(self):
-        return '\n    nome: %s\n    email: %s\n    telefone: %s\n    id: %s\n    nome_login: %s\n    senha: %s\n    ' \
+        return 'Cliente:\n    nome: %s\n    email: %s\n    telefone: %s\n    id: %s\n    nome_login: %s\n    senha: %s\n    ' \
          %(self.nome, self.email, self.telefone, self.id, self.nome_login, self.senha)
 
     def __eq__(self, outro):
@@ -104,7 +105,7 @@ class Comentario(object):
         self.mensagem = mensagem
 
     def __str__(self):
-        return '\n    nome: %s\n    email: %s\n    mensagem: %s\n    '\
+        return 'Comentario\n    nome: %s\n    email: %s\n    mensagem: %s\n    '\
          %(self.nome, self.email, self.mensagem)
 
 class Produto(object):
@@ -123,7 +124,7 @@ class Produto(object):
         self.descricao = descricao
 
     def __str__(self):
-        return '\n    nomep: %s\n    quantidade: %s\n    codigo: %s\n    descricao: %s\n    '\
+        return 'Produto\n    nomep: %s\n    quantidade: %s\n    codigo: %s\n    descricao: %s\n    '\
          %(self.nomep, self.quantidade, self.codigo, self.descricao)
 
 class Reserva(object):
@@ -146,5 +147,5 @@ class Reserva(object):
         self.confirmacao = confirmacao
 
     def __str__(self):
-        return '\n    data_reserva: %s\n    cliente: %s\n    produto: %s\n    quantidade: %s\n    id: %s\n    confirmacao: %s\n    ' \
+        return 'Reserva:\n    data_reserva: %s\n    cliente: %s\n    produto: %s\n    quantidade: %s\n    id: %s\n    confirmacao: %s\n    ' \
          %(self.data_reserva, self.cliente, self.produto, self.quantidade, self.id, self.confirmacao)
