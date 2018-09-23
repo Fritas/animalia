@@ -45,9 +45,9 @@ def teste_models():
     print('Animal 2 == Animal 3: ', animal2 == animal3)
 
     print('\n\n-- Teste Classe Cliente')
-    cliente1 = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 1, 'joaozinho', 'joao123')
-    cliente2 = Cliente('Monicazinha', 'monicazinha@email.com', '47 88888-8888', 2, 'monicazinha', 'monicazinha123')
-    cliente3 = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 1, 'joaozinho', 'joao123')
+    cliente1 = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 'joaozinho', 'joao123')
+    cliente2 = Cliente('Monicazinha', 'monicazinha@email.com', '47 88888-8888', 'monicazinha', 'monicazinha123')
+    cliente3 = Cliente('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 'joaozinho', 'joao123')
 
     print('\n-- Method __str__')
     print('Cliente 1: ', cliente1)
@@ -169,4 +169,4 @@ class TesteDao(object):
         return consultas
 
 if __name__ == "__main__":
-    TesteDao.testar()
+    teste_models()
