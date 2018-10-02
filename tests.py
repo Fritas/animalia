@@ -1,5 +1,7 @@
-from model import Animal, Cliente, Consulta, Comentario, Produto, Reserva
-from dao import Dao, Database
+#from model import Animal, Cliente, Consulta, Comentario, Produto, Reserva
+from model_peewee import *
+#from dao-dataset import Dao, Database
+#from dao_peewee import Dao
 
 def imprimir_docs_string():
     #docsstring
@@ -90,6 +92,83 @@ def teste_models():
     print('\n-- Method __str__')
     print('Reserva: ', reserva)
 
+class TesteModelPeewee(object):
+
+
+    def __init__(self):
+        print('\n\n-- Teste model.py')
+        self.teste_animal()
+        
+    def teste_animal(self):
+    
+        print('\n\n-- Teste Classe Animal')
+        self.animal1 = Animal.create('joao', 'Cachorro', 'Vira-lata')
+        self.animal2 = Animal.create('monica', 'Cachorro', 'Vira-lata')
+        self.animal3 = Animal.create('joao', 'Cachorro', 'Vira-lata')
+        print('\n-- Method __str__')
+        print('Animal 1: ', self.animal1)
+        print('Animal 2: ', self.animal2)
+        print('Animal 3: ', self.animal3)
+        print('\n-- Method __eq__')
+        print('Animal 1 == Animal 2: ', self.animal1 == self.animal2)
+        print('Animal 1 == Animal 3: ', self.animal1 == self.animal3)
+        print('Animal 2 == Animal 3: ', self.animal2 == self.animal3)
+
+    def teste_cliente(self):
+
+        print('\n\n-- Teste Classe Cliente')
+        self.cliente1 = Cliente.create('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 'joaozinho', 'joao123')
+        self.cliente2 = Cliente.create('Monicazinha', 'monicazinha@email.com', '47 88888-8888', 'monicazinha', 'monicazinha123')
+        self.cliente3 = Cliente.create('Joãozinho', 'joaozinho@email.com', '47 99999-9999', 'joaozinho', 'joao123')
+
+        print('\n-- Method __str__')
+        print('Cliente 1: ', self.cliente1)
+        print('Cliente 2: ', self.cliente2)
+        print('Cliente 3: ', self.cliente3)
+
+        print('\n-- Method __eq__')
+        print('Cliente 1 == Cliente 2: ', self.cliente1 == self.cliente2)
+        print('Cliente 1 == Cliente 3: ', self.cliente1 == self.cliente3)
+        print('Cliente 2 == Cliente 3: ', self.cliente2 == self.cliente3)
+
+    def teste_consulta(self):
+
+        print('\n\n-- Teste Classe Consulta')
+        self.consulta1 = Consulta.create('2018/09/04', 'banho', '15:00', cliente1, animal1, 'confirmada')
+        self.consulta2 = Consulta.create('2018/09/04', 'banho', '18:00', cliente1, animal1, 'confirmada')
+        self.consulta3 = Consulta.create('2018/09/04', 'banho', '15:00', cliente3, animal3, 'confirmada')
+
+        print('\n-- Method __str__')
+        print('Consulta 1: ', self.consulta1)
+        print('Consulta 2: ', self.consulta2)
+        print('Consulta 3: ', self.consulta3)
+
+        print('\n-- Method __eq__')
+        print('Consulta 1 == Consulta 2: ', self.consulta1 == self.consulta2)
+        print('Consulta 1 == Consulta 3: ', self.consulta1 == self.consulta3)
+        print('Consulta 2 == Consulta 3: ', self.consulta2 == self.consulta3)
+
+    def teste_comentario(self):
+
+        print('\n\n-- Teste Classe Comentario')
+        self.comentario = Comentario('joaozinho', 'joaozinho@email.com', 'O banho do dog ficou ótimo!')
+        print('\n-- Method __str__')
+        print('Comentario: ', self.comentario)
+
+    def teste_produto(self):
+
+        print('\n\n-- Teste Classe Produto')
+        self.produto = Produto.create('Perfume', 1, 456, 'Perfume especial para cães domésticos que vivem dentro de casa.')
+        print('\n-- Method __str__')
+        print('Comentario: ', self.produto)
+
+    def teste_reserva(self):
+
+        print('\n\n-- Teste Classe Reserva')
+        self.reserva = Reserva('2018/09/04', 'joazinho', self.produto, 1, 2, 'confirmado')
+        print('\n-- Method __str__')
+        print('Reserva: ', self.reserva)
+
 class TesteDao(object):
 
     @staticmethod
@@ -169,4 +248,5 @@ class TesteDao(object):
         return consultas
 
 if __name__ == "__main__":
-    TesteDao.testar()
+    #TesteDao.testar()
+    TesteModelPeewee()
